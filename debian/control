@@ -1,0 +1,28 @@
+Source: containerd-1.7
+Section: admin
+Priority: optional
+Maintainer: Garden Linux <contact@gardenlinux.io>
+Build-Depends: debhelper-compat (= 12),
+               dh-golang,
+               git,
+               go-md2man,
+               golang-1.20-go,
+               libbtrfs-dev | btrfs-progs (<< 4.16.1~),
+               libseccomp-dev,
+               pkg-config
+Standards-Version: 4.6.2
+Homepage: https://containerd.io
+
+Package: containerd-1.7
+Architecture: linux-any
+Depends: runc, ${misc:Depends}, ${shlibs:Depends}
+Conflicts: containerd (<< 1.7)
+Replaces: containerd (<< 1.7)
+Built-Using: ${misc:Built-Using}
+Description: daemon to control runC
+ Containerd is a daemon to control runC, built for performance and density.
+ Containerd leverages runC's advanced features such as seccomp and user
+ namespace support as well as checkpoint and restore for cloning and live
+ migration of containers.
+ .
+ This package contains the binaries.
